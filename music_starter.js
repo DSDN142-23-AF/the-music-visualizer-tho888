@@ -3,6 +3,7 @@ let BPM = 164;
 let beat = (60 / BPM);
 let offset = 0.0875;
 
+// -------------------- image sequence variables --------------------
 let firstRun = true;
 let globe = [];
 let scrollingText = [];
@@ -97,11 +98,10 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
       ellipse(width / 5 * 4, height / 3 - 3 * ellipseSpacing3, ellipseSize3, ellipseSize3 / 4);
       pop();
 
-      // let decimalPartLoading = counter % 0.5;
       var loadingAnimation = int(map(other, 0, 100, 0, 19));
       image(loading[loadingAnimation], 100, height - 250, 150, 150);
 
-      image(bg_1, width / 2, height - height / 4);
+      image(bg_1, width - width/3, height - height / 4);
 
     } else if (counter < (256 * beat) + offset) {
       // -------------------- screen 2/3 --------------------
@@ -151,8 +151,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
       }
 
       translate(0 - width / 2, 0 - height / 2);
-      image(bg_1, 600, 250);
-
+      image(bg_1, width - width / 2.2, height / 4);
     }
 
     // -------------------- noise overlay --------------------
